@@ -1,0 +1,16 @@
+TODO:
+
+- Set up router paths
+Index: accept query params
+/process : take index query param and e.target.value to generate page content.
+
+Page one:
+- Refactor page into components. Pass state as needed into components.
+
+- Add query param to <Select /> to include &section=complaints &section=feelings
+- add onClick functionality to navigate from div to page two
+- add + div at end of list
+
+Page two:
+- use react router to pass section state to page two (for back button UX consistency)
+

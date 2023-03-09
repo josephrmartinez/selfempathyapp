@@ -1,0 +1,1 @@
+export const complaintsList = ['aggressive', 'arrogant', 'cheap', 'clueless', 'condescending', 'confrontational', 'controlling', 'defensive', 'flaky', 'high-maintenance', 'hypersensitive', 'incompetent', 'inconsiderate', 'rambling', 'overreacting', 'self-absorbed']
