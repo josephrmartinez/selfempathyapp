@@ -53,6 +53,7 @@ html{
   position: relative;
   top: 80px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   background-color: rgb(249 250 251);
 }

@@ -18,7 +18,7 @@ export default function DivColumn({ wordList, searchText, divClass }) {
   });
   
   return (
-    <div className='listContainer'>
+    <div className='flex flex-col items-center'>
       {divs}
     </div>
   )  

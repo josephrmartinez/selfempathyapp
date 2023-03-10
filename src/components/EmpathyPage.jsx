@@ -8,15 +8,16 @@ import { feelingsList } from '../assets/feelingsList'
 import { complaintsList } from '../assets/complaintsList'
 import DivColumn from '../components/DivColumn'
 
+import complaints from '../assets/complaints'
+import feelings from '../assets/feelings'
+
+
 
 export function loader() {
     return "the data goes here"
 }
 
 export default function EmpathyPage(props) {
-// props.word
-// props.divClass
-    
     // let location = useLocation()
     // console.log(location)
 
@@ -26,6 +27,13 @@ export default function EmpathyPage(props) {
     const params = useParams()
     console.log(params)
 
+    const content =
+        params.section == "feelings" ? feelings[params.word] :  complaints[params.word]
+
+    const initialFeelings = content.initialFeelings
+    const underlyingFeelings = content.underlyingFeelings
+    const needs = content.needs
+
     return (
     <div>
       <div className='header'>
@@ -34,7 +42,14 @@ export default function EmpathyPage(props) {
         <div>        </div>
       </div>
       <div className='container'>
-        <div>{params.section}</div>
+                {initialFeelings && <>
+                    <div>initial feelings</div>
+                    <div>{initialFeelings}</div>
+                </>}
+                <div>underlying feelings</div>
+                <div>{underlyingFeelings}</div>
+                <div>needs</div>
+                <div>{needs}</div>
       </div>
       
     </div>
