@@ -4,6 +4,13 @@ TODO:
 Index: accept query params
 /process : take index query param and e.target.value to generate page content.
 
+Structure router to give each word its own page?
+/process/{word}?
+/complaints/aggressive
+/feelings/belittled
+
+
+
 Page one:
 - Refactor page into components. Pass state as needed into components.
 

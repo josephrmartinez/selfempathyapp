@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Div(props) {
     return (
-        <div className={`listDiv ${props.divClass}`} key={props.word} onClick={() => console.log(props.divClass, props.word)}>
+        <Link to={`/${props.divClass}/${props.word}`} className={`listDiv ${props.divClass}`} key={props.word}>
             {props.word}
-        </div>
+        </Link>
     )
 }
