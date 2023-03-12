@@ -33,7 +33,7 @@ function App() {
           type="text"
           placeholder=''
           value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
+          onChange={(e) => setSearchText(e.target.value.toLowerCase())}
             className="border rounded-full w-24 indent-2"></input>
           <img role="img" src='src/assets/icons/search.svg'/>
         </div>
