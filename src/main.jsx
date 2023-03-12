@@ -9,7 +9,7 @@ import {
   RouterProvider, Link
 } from "react-router-dom";
 import ErrorPage from './error-page'
-import EmpathyPage, { loader as empathyPageLoader } from './components/EmpathyPage';
+import EmpathyPage from './components/EmpathyPage';
   
 
 
@@ -37,7 +37,6 @@ const router = createBrowserRouter([
   {
     path: ":section/:word",
     element: <EmpathyPage />,
-    loader: empathyPageLoader,
     errorElement: <ErrorPage />,
   }
 ]);

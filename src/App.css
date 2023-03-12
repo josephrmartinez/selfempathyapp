@@ -55,14 +55,20 @@ html{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(249 250 251);
+  align-items: center;
+}
+
+.container.empathy{
+  top: 90px;
+  height: calc(100vh - 110px);
+  justify-content: flex-start;
 }
 
 .listDiv{
     width: 180px;
     height: 80px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.12);
-    border-radius: 5px;
+    border-radius: 10px;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;

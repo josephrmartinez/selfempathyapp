@@ -1,11 +1,17 @@
 TODO:
 
+- Pull selected state up to EmpathyForm level
+- State needs to persist between each form AND be able to count toward upvote
+
+
+
+
+
 Page one:
 - Add query param to <Select /> to include &section=complaints &section=feelings
 - add + div at end of list
+- Add "neglegent" to complaints list
 
 Page two:
-- implement buildSlider component in jsx
-- build and style page two with received data
 - use react router to pass section state to page two (for back button UX consistency)
 

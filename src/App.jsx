@@ -38,7 +38,7 @@ function App() {
           <img role="img" src='src/assets/icons/search.svg'/>
         </div>
       </div>
-      <div className='container scroll'>
+      <div className='container'>
         <DivColumn
           wordList={section === "feelings" ? feelingsList : complaintsList}
           searchText={searchText}
