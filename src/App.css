@@ -17,13 +17,13 @@ html{
 
 .header{
   display: grid;
-  background-color: rgb(249 250 251);
+  background-color: rgba(249, 250, 251, 0.9);
   z-index: 99;
   grid-template-columns: 1fr 180px 1fr;
   height: 80px;
   position: fixed;
   width: 100%;
-  box-shadow: 0 1px 5px 5px rgb(249 250 251);
+  box-shadow: 0 1px 5px 5px #F9FAFBE6;
 }
 
 .searchContainer {

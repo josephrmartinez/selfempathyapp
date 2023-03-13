@@ -11,17 +11,29 @@ import { useNavigate } from "react-router-dom"
 
 export default function EmpathyForm(props) {
     const [data, setData] = useState(props.content)
-    
+
     function updateFields(fields) {
         setData(prevData => {
             return {...prevData, ...fields}
         })
     }
 
+    function handleDivClick(section, index) {        
+    setData(prevData => {
+        const updatedSection = prevData[section].map((item, i) => {
+            if (i === index) {
+                return { ...item, selected: !item.selected };
+            }
+            return item;
+        });
+        return { ...prevData, [section]: updatedSection };
+    });
+}
+
 
     const { steps, currentStepIndex, step, isLastStep, back, next } =
         useMultistepForm([
-            <EFInitialFeelings {...data} updateFields={updateFields} />,
+            <EFInitialFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
             <EFUnderlyingFeelings {...data} updateFields={updateFields} />,
             <EFNeeds {...data} updateFields={updateFields} />,
             <EFSummary {...data} updateFields={updateFields} />

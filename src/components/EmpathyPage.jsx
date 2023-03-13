@@ -20,11 +20,33 @@ export default function EmpathyPage(props) {
     const content =
         params.section == "feelings" ? feelings[params.word] :  complaints[params.word]
 
-    const initialFeelings = content.initialFeelings
-    const underlyingFeelings = content.underlyingFeelings
-    const needs = content.needs
+  
+  let frontEndEmpathyData =
+   params.section == "complaints" ? {
+      complaint: content.complaint,
+      initialFeelings: content.initialFeelings.map(each => {
+        return {word: each, selected: false}
+      }),
+      underlyingFeelings: content.underlyingFeelings.map(each => {
+        return {word: each, selected: false}
+      }),
+      needs: content.needs.map(each => {
+        return {word: each, selected: false}
+      }),
+    }
+      : 
+   {
+      feeling: content.initialFeeling,
+      underlyingFeelings: content.underlyingFeelings.map(each => {
+        return {word: each, selected: false}
+      }),
+      needs: content.needs.map(each => {
+        return {word: each, selected: false}
+      }),
+    }
+  
 
-    console.log(content)
+    console.log(frontEndEmpathyData)
 
 
     return (
@@ -38,7 +60,7 @@ export default function EmpathyPage(props) {
                     <div className={`listDiv ${params.section}`} style={{ cursor: "default" }}>{params.word}</div>
                 </div>
                 <div className='h-full w-full'>
-                    <EmpathyForm content={content} />
+                    <EmpathyForm content={frontEndEmpathyData} />
                 </div>
             </div>
 

@@ -7,7 +7,6 @@ TODO:
 
 
 Page one:
-- BUG FIX: input needs to default to lower case (search does not catch uppercase values) or, change filter function to account for upper and lower case.
 - IMG handling: switch from img src paths to import statements. All svg links are broken on deploy.
 - Add query param to <Select /> to include &section=complaints &section=feelings
 - add + div at end of list
