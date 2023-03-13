@@ -12,7 +12,7 @@ export default function EFInitialFeelings({updateFields, initialFeelings, handle
     
     return (
         <FormWrapper title="MY INITIAL FEELINGS">
-            <DivGrid words={initialFeelings} section="initialFeelings" bgColor={'#699F96'} updateFields={updateFields} handleDivClick={handleDivClick}/>
+            <DivGrid words={initialFeelings} section="initialFeelings" bgColor={'#699F96'} handleDivClick={handleDivClick}/>
         </FormWrapper>
   );
 }

@@ -34,11 +34,12 @@ export default function EmpathyForm(props) {
     const { steps, currentStepIndex, step, isLastStep, back, next } =
         useMultistepForm([
             <EFInitialFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-            <EFUnderlyingFeelings {...data} updateFields={updateFields} />,
-            <EFNeeds {...data} updateFields={updateFields} />,
-            <EFSummary {...data} updateFields={updateFields} />
+            <EFUnderlyingFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick}/>,
+            <EFNeeds {...data} updateFields={updateFields} handleDivClick={handleDivClick}/>,
+            <EFSummary {...data} />
         ])
     
+    console.log(step.type.name)
     const navigate = useNavigate()
 
     function onSubmit(e) {

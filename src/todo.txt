@@ -1,6 +1,4 @@
 TODO:
-- Pull selected state up to EmpathyForm level
-- State needs to persist between each form AND be able to count toward upvote
 - Implement EFSummary component. Display all selected values.
 
 
