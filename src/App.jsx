@@ -6,6 +6,8 @@ import Select from 'react-select'
 import { feelingsList } from './assets/feelingsList'
 import { complaintsList } from './assets/complaintsList'
 import DivColumn from './components/DivColumn'
+import { ReactComponent as SearchIcon } from './assets/icons/search.svg';
+import { ReactComponent as InfoIcon } from './assets/icons/info-circle.svg';
 
 function App() {
   const [section, setSection] = useState("feelings")
@@ -26,7 +28,7 @@ function App() {
   return (
     <div>
       <div className='header'>
-        <div className='m-auto cursor-pointer' onClick={()=> setInfoBox(!infoBox)}><img role="img" src='src/assets/icons/info-circle.svg'/></div>
+        <div className='m-auto cursor-pointer' onClick={()=> setInfoBox(!infoBox)}><InfoIcon/></div>
         <div className='m-auto w-[180px]'><Select options={sections} defaultValue={sections[0]} onChange={handleSelectInputChange}/></div>
         <div className='searchContainer'>
           <input
@@ -35,7 +37,7 @@ function App() {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value.toLowerCase())}
             className="border rounded-full w-24 indent-2"></input>
-          <img role="img" src='src/assets/icons/search.svg'/>
+          <SearchIcon className="SearchIcon"/>
         </div>
       </div>
       <div className='container'>

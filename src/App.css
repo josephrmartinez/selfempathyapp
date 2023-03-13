@@ -41,7 +41,7 @@ html{
   height: 30px;
 }
 
-.searchContainer img {
+.searchContainer .SearchIcon {
   position: absolute;
   display: inline-block;
   left: 10px;
