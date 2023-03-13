@@ -11,7 +11,7 @@ export default function EFUnderlyingFeelings({updateFields, underlyingFeelings, 
 
     return (
         <FormWrapper title="MY UNDERLYING FEELINGS">
-            <DivGrid words={underlyingFeelings} bgColor={'#935A5A'} handleDivClick={handleDivClick} section="underlyingFeelings" />
+            <DivGrid words={underlyingFeelings} bgColor={'#935A5A'} handleDivClick={handleDivClick} section="underlyingFeelings" isCursorPointer={true}/>
         </FormWrapper>
   );
 }

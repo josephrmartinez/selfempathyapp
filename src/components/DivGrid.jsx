@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function DivGrid({ words, section, bgColor, updateFields, handleDivClick}) {
+export default function DivGrid({ words, section, bgColor, updateFields, handleDivClick, isCursorPointer}) {
   const [selectedIndexes, setSelectedIndexes] = useState([]);
   // const handleDivClick = (index) => {
   //   if (selectedIndexes.includes(index)) {
@@ -23,7 +23,7 @@ export default function DivGrid({ words, section, bgColor, updateFields, handleD
       {words.map((word, index) => (
         <div
           key={index}
-          className={`py-2 px-3 rounded-full cursor-pointer antialiased`}
+          className={`py-2 px-3 rounded-full ${isCursorPointer ? 'cursor-pointer' : 'cursor-default'} antialiased`}
           style={word.selected
             ? { color: '#FEFEFE', backgroundColor: bgColor, borderWidth: '1px', borderColor: bgColor }
             : { color: '#606060', borderWidth: '1px', borderColor: '#c5c5c5'}}
