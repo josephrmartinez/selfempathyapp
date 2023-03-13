@@ -7,6 +7,7 @@ import { feelingsList } from '../assets/feelingsList'
 import { complaintsList } from '../assets/complaintsList'
 import DivColumn from '../components/DivColumn'
 import DivGrid from './DivGrid'
+import { ReactComponent as HomeIcon } from '../assets/icons/house.svg'
 
 import complaints from '../assets/complaints'
 import feelings from '../assets/feelings'
@@ -29,7 +30,7 @@ export default function EmpathyPage(props) {
     return (
     <div>
       <div className='header'>
-        <Link to={`..`} className='m-auto cursor-pointer'><img role="img" src='../src/assets/icons/house.svg'/></Link>
+        <Link to={`..`} className='m-auto cursor-pointer'><HomeIcon /></Link>
       </div>
             <div className='container empathy'>
                 <div>

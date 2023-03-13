@@ -12,13 +12,13 @@ export default function DivGrid({ words, bgColor}) {
   };
 
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 gap-6">
       {words.map((word, index) => (
         <div
           key={index}
           className={`py-2 px-3 rounded-full cursor-pointer antialiased`}
           style={selectedIndexes.includes(index)
-            ? { color: '#FEFEFE', backgroundColor: bgColor }
+            ? { color: '#FEFEFE', backgroundColor: bgColor, borderWidth: '1px', borderColor: bgColor }
             : { color: '#606060', borderWidth: '1px', borderColor: '#c5c5c5'}}
           onClick={() => handleDivClick(index)}
         >

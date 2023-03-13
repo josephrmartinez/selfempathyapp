@@ -4,7 +4,8 @@ import EFInitialFeelings from "./EFInitialFeelings"
 import EFUnderlyingFeelings from "./EFUnderlyingFeelings"
 import EFNeeds from "./EFNeeds"
 import EFSummary from "./EFSummary"
-
+import { ReactComponent as RightIcon } from '../../assets/icons/angle-right-solid.svg'
+import { ReactComponent as LeftIcon } from '../../assets/icons/angle-left-solid.svg'
 import { useNavigate } from "react-router-dom"
 
 
@@ -54,7 +55,7 @@ export default function EmpathyForm(props) {
             {currentStepIndex !== 3 && <div className="flex flex-row justify-between items-center text-sm mx-4">
                 {currentStepIndex === 0 && <div className=""></div>}
                 {currentStepIndex !== 0 &&
-                    <button type="button" className="flex flex-row items-center" style={{ color: "#888888" }} onClick={back}><img className="mx-2 opacity-40" width={12} src="../../src/assets/icons/angle-left-solid.svg" />
+                    <button type="button" className="flex flex-row items-center" style={{ color: "#888888" }} onClick={back}><LeftIcon className="mx-2 opacity-40" width={12} />
                         {currentStepIndex === 1 && "initial feelings"}
                         {currentStepIndex === 2 && "underlying feelings"}
                     </button>}
@@ -63,7 +64,7 @@ export default function EmpathyForm(props) {
                     {currentStepIndex === 0 && "underlying feelings"}
                     {currentStepIndex === 1 && "needs"}
                     {currentStepIndex === 2 && "I'm complete"}
-                    <img className="mx-2 opacity-40" width={12} src="../../src/assets/icons/angle-right-solid.svg" />
+                    <RightIcon className="mx-2 opacity-40" width={12} />
                 </button>
             </div>}
             </form>
