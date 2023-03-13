@@ -53,7 +53,7 @@ function App() {
               <div className='text-sm text-slate-800'>An online guide to support the self-empathy process. Start with a complaint or feeling to connect with your underlying feelings and needs.</div>
             </div>
             <div className='text-sm m-4 text-slate-800'>site built by <a className="underline" target="_blank" href='https://www.josephm.dev'>josephm.dev</a></div>
-            <div className='mt-6 px-5 py-2 bg-gray-50 border rounded cursor-pointer'><button className="text-slate-800 text-sm" onClick={()=> setInfoBox(!infoBox)}>close</button></div>
+            <div className='mt-6 px-5 py-2 bg-gray-50 border rounded cursor-pointer' onClick={()=> setInfoBox(!infoBox)}><div className="text-slate-800 text-sm" >close</div></div>
 
           </div>
         </div>

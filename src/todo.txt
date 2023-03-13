@@ -1,5 +1,6 @@
 TODO:
-- Implement EFSummary component. Display all selected values.
+- Conditionally render navigation text
+- Update empathyForm to accept values with "feelings" data
 
 
 
