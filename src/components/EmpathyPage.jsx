@@ -46,7 +46,7 @@ export default function EmpathyPage(props) {
     }
   
 
-    console.log(frontEndEmpathyData)
+    // console.log(frontEndEmpathyData)
 
 
     return (
