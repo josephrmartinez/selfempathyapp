@@ -13,34 +13,20 @@ export default function EmpathyForm(props) {
 
     const steps = [];
         if (data['initialFeelings']) {
-        steps.push(<EFInitialFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />);
+        steps.push(<EFInitialFeelings {...data} formPage="EFInitialFeelings" updateFields={updateFields} handleDivClick={handleDivClick} />);
         }
         steps.push(
-        <EFUnderlyingFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-        <EFNeeds {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-        <EFSummary {...data} />
+        <EFUnderlyingFeelings {...data} formPage="EFUnderlyingFeelings" updateFields={updateFields} handleDivClick={handleDivClick} />,
+        <EFNeeds {...data} formPage="EFNeeds" updateFields={updateFields} handleDivClick={handleDivClick} />,
+        <EFSummary {...data} formPage="EFSummary"/>
         );
 
     const { currentStepIndex, step, isLastStep, back, next } =
         useMultistepForm(steps);
 
 
-    function getCurrentStep(step) {
-        switch (step.type.name) {
-            case "EFInitialFeelings":
-                return "EFInitialFeelings";
-            case "EFUnderlyingFeelings":
-                return "EFUnderlyingFeelings";
-            case "EFNeeds":
-                return "EFNeeds";
-            case "EFSummary":
-                return "EFSummary";
-            default:
-                return "";
-        }
-        }
-    const formPage = getCurrentStep(step)
-    console.log(step.type.name)
+    const formPage = step.props.formPage
+    console.log(formPage)
     
       
     function updateFields(fields) {
