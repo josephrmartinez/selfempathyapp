@@ -11,16 +11,6 @@ import { ReactComponent as LeftIcon } from '../../assets/icons/angle-left-solid.
 export default function EmpathyForm(props) {
     const [data, setData] = useState(props.content)
 
-    // const { currentStepIndex, step, isLastStep, back, next } =
-    // useMultistepForm([
-    //     data['initialFeelings'].length > 1
-    //     ? null
-    //     : <EFInitialFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-    //     <EFUnderlyingFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-    //     <EFNeeds {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-    //     <EFSummary {...data} />
-    // ]);
-
     const steps = [];
         if (data['initialFeelings']) {
         steps.push(<EFInitialFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />);
@@ -34,37 +24,11 @@ export default function EmpathyForm(props) {
     const { currentStepIndex, step, isLastStep, back, next } =
         useMultistepForm(steps);
 
-        // // Ensure that currentStepIndex is correctly set if the first step is not rendered
-        // if (data['initialFeelings'].length < 1 && currentStepIndex === 0) {
-        // next();
-        // }
 
     const formPage = step.type.name
 
-    // if (data['initialFeelings'].length > 1) {
-    //     console.log("choop")
-    //     const { currentStepIndex, step, isLastStep, back, next } =
-    //         useMultistepForm([
-    //             <EFInitialFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-    //             <EFUnderlyingFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-    //             <EFNeeds {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-    //             <EFSummary {...data} />
-    //         ])
-    //     const formPage = step.type.name
-    // } else {
-    //     const { currentStepIndex, step, isLastStep, back, next } =
-    //         useMultistepForm([
-    //             <EFUnderlyingFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-    //             <EFNeeds {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-    //             <EFSummary {...data} />
-    //         ])
-    //     const formPage = step.type.name
-    // }
     
-        
-
-    // console.log(data['initialFeelings'].length > 1)
-
+      
     function updateFields(fields) {
         setData(prevData => {
             return {...prevData, ...fields}
@@ -82,18 +46,6 @@ export default function EmpathyForm(props) {
             return { ...prevData, [section]: updatedSection };
         });
     }
-
-    // const { currentStepIndex, step, isLastStep, back, next } =
-    //         useMultistepForm([
-    //             <EFInitialFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-    //             <EFUnderlyingFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-    //             <EFNeeds {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
-    //             <EFSummary {...data} />
-    //         ])
-    // const formPage = step.type.name
-
-    
-    
 
     function onSubmit(e) {
         e.preventDefault();
@@ -138,6 +90,46 @@ export default function EmpathyForm(props) {
 
 
 
+  // const { currentStepIndex, step, isLastStep, back, next } =
+        // useMultistepForm([
+        //     data['initialFeelings'].length > 1
+        //     ? null
+        //     : <EFInitialFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
+        //     <EFUnderlyingFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
+        //     <EFNeeds {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
+        //     <EFSummary {...data} />
+        // ]);
+    
+        // // Ensure that currentStepIndex is correctly set if the first step is not rendered
+        // if (data['initialFeelings'].length < 1 && currentStepIndex === 0) {
+        // next();
+        // }
+    
+    
+
+    // if (data['initialFeelings'].length > 1) {
+    //     console.log("choop")
+    //     const { currentStepIndex, step, isLastStep, back, next } =
+    //         useMultistepForm([
+    //             <EFInitialFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
+    //             <EFUnderlyingFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
+    //             <EFNeeds {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
+    //             <EFSummary {...data} />
+    //         ])
+    //     const formPage = step.type.name
+    // } else {
+    //     const { currentStepIndex, step, isLastStep, back, next } =
+    //         useMultistepForm([
+    //             <EFUnderlyingFeelings {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
+    //             <EFNeeds {...data} updateFields={updateFields} handleDivClick={handleDivClick} />,
+    //             <EFSummary {...data} />
+    //         ])
+    //     const formPage = step.type.name
+    // }
+    
+        
+
+    // console.log(data['initialFeelings'].length > 1)
 
 
 
