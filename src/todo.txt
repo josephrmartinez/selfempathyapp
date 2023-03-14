@@ -1,12 +1,9 @@
 TODO:
-- Conditionally render navigation text
-- Update empathyForm to accept values with "feelings" data
-
-
+const formPage = step.type.name does NOT work becuase it is using the file name on the dev environment.
+Figure out how to query this in the build environment.
 
 
 Page one:
-- IMG handling: switch from img src paths to import statements. All svg links are broken on deploy.
 - Add query param to <Select /> to include &section=complaints &section=feelings
 - add + div at end of list
 - Add "neglegent" to complaints list

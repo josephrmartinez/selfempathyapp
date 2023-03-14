@@ -25,8 +25,22 @@ export default function EmpathyForm(props) {
         useMultistepForm(steps);
 
 
-    const formPage = step.type.name
-
+    function getCurrentStep(step) {
+        switch (step.type.name) {
+            case "EFInitialFeelings":
+                return "EFInitialFeelings";
+            case "EFUnderlyingFeelings":
+                return "EFUnderlyingFeelings";
+            case "EFNeeds":
+                return "EFNeeds";
+            case "EFSummary":
+                return "EFSummary";
+            default:
+                return "";
+        }
+        }
+    const formPage = getCurrentStep(step)
+    console.log(step.type.name)
     
       
     function updateFields(fields) {
@@ -51,14 +65,6 @@ export default function EmpathyForm(props) {
         e.preventDefault();
         if (!isLastStep) return next()
 
-        // // Parse any JSON previously stored
-        // var existingData = JSON.parse(localStorage.getItem("reactionsJournalLogData"));
-        // if(existingData == null) existingData = starterData;
-        // localStorage.setItem("entry", JSON.stringify(data));
-        // // Save data back to local storage
-        // existingData.unshift(data);
-        // localStorage.setItem("reactionsJournalLogData", JSON.stringify(existingData));
-        // navigate('/reactionsjournal/logs')
     };
     
 
