@@ -7,6 +7,8 @@ Page one:
 
 
 Page two:
+- Prevent text select capability on + div. Make plus bigger
+- Default input tex toLowerCase
 - Summary page: change DivGridSUmmary to center divs if there is only one value?
 - PREVENTDEFAULT? onEnter event for input box is triggering next page on multistep form
 - use react router to pass section state to page two (for back button UX consistency)

@@ -26,7 +26,7 @@ export default function EmpathyForm(props) {
 
 
     const formPage = step.props.formPage
-    console.log(formPage)
+    
     
       
     function updateFields(fields) {

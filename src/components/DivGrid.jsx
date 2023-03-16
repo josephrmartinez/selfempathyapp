@@ -10,7 +10,7 @@ export default function DivGrid({ words, section, bgColor, updateFields, handleD
   }
 
   function handleInputChange(e) {
-    setUserInputValue(e.target.value)
+    setUserInputValue(e.target.value.toLowerCase())
   }
 
   function handleInputSubmit(e) {

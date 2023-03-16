@@ -4,9 +4,30 @@ import DivGridSummary from "../DivGridSummary";
 export default function EFSummary(data) {
     
     // USE OPTIONAL CHAINING OPERATOR TO AVOID UNDEFINED ERROR
+    const complaint = data?.complaint
+    const initialFeeling = data?.feeling
     const selectedInitialFeelings = data.initialFeelings?.filter(each => each.selected)
     const selectedUnderlyingFeelings = data.underlyingFeelings.filter(each => each.selected)
     const selectedNeeds = data.needs.filter(each => each.selected)
+
+    const complaintDataObj = {
+        "my complaint": complaint,
+        "my initial feelings": selectedInitialFeelings?.map(each => each.word),
+        "my underlying feelings": selectedUnderlyingFeelings.map(each => each.word),
+        "my needs": selectedNeeds.map(each => each.word)
+    }
+
+    const feelingDataObj = {
+        "my initial feeling": initialFeeling,
+        "my underlying feelings": selectedUnderlyingFeelings.map(each => each.word),
+        "my needs": selectedNeeds.map(each => each.word)
+    }
+
+    if (selectedInitialFeelings) {
+        console.log(complaintDataObj)
+    } else {
+        console.log(feelingDataObj)
+    }
 
     return (
     <>
