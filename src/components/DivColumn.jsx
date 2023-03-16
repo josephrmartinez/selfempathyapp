@@ -1,8 +1,12 @@
 
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import Div from "./Div";
 
-export default function DivColumn({ wordList, searchText, divClass }) {
+export default function DivColumn({ wordList, searchText, divClass, handleAddWordClick }) {
+  const [newInput, setNewInput] = useState("")
+  const [newInputActive, setNewInputActive] = useState(false)
+  
   const divs = [];
 
   wordList.forEach((word) => {
@@ -20,6 +24,7 @@ export default function DivColumn({ wordList, searchText, divClass }) {
   return (
     <div className='flex flex-col items-center'>
       {divs}
+      <div className={`listDiv ${divClass}`} onClick={handleAddWordClick} >+</div>
     </div>
   )  
 }

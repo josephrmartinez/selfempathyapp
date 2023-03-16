@@ -67,30 +67,3 @@ export default function EmpathyPage(props) {
     </div>
   )
 }
-
-// {initialFeelings && <>
-//                     <div className='text-sm'>INITIAL FEELINGS</div>
-//                     <DivGrid
-//                         words={initialFeelings}
-//                         bgColor={'#699F96'}
-//                         ringColor={'blue-500'}
-//                         applyTransparency={applyTransparency}
-//                     />
-//                 </>}
-//                 <div className='text'>UNDERLYING FEELINGS</div>
-//                 <DivGrid
-//                         words={underlyingFeelings}
-//                         bgColor={'#935A5A'}
-//                         ringColor={'blue-500'}
-//                         applyTransparency={applyTransparency}
-//                     />
-//                 <div className='text-sm'>NEEDS</div>
-//                 <DivGrid
-//                         words={needs}
-//                         bgColor={'#93b1c9'}
-//                         ringColor={'blue-500'}
-//                         applyTransparency={applyTransparency}
-//                     />
-//                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4" onClick={() => handleTransparencyClick(setApplyTransparency)}>
-//                     I'm complete
-//                 </button>

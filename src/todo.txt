@@ -1,13 +1,15 @@
 TODO:
-const formPage = step.type.name does NOT work becuase it is using the file name on the dev environment.
-Figure out how to query this in the build environment.
-
 
 Page one:
 - Add query param to <Select /> to include &section=complaints &section=feelings
-- add + div at end of list
-- Add "neglegent" to complaints list
+- add + div at end of page one div column. Implement connection to firestore database.
+- add + div to div grid. Implement add user suggestion.
+
 
 Page two:
 - use react router to pass section state to page two (for back button UX consistency)
 
+
+
+Content:
+- Add "neglegent" to complaints list

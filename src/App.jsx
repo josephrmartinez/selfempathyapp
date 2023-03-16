@@ -13,6 +13,7 @@ function App() {
   const [section, setSection] = useState("feelings")
   const [searchText, setSearchText] = useState('');
   const [infoBox, setInfoBox] = useState(false)
+  const [addWord, setAddWord] = useState(false)
 
 
   const sections = [
@@ -24,7 +25,16 @@ function App() {
     setSection(value.value)
   }
 
+  function handleAddWordClick() {
+    console.log("choop")
+    setAddWord(!addWord)
+  }
 
+  function handleKeyDown(e) {
+    if (e.keyCode === 13 || e.keyCode === 9) {
+      handleAddWordClick()
+    }
+  }
   return (
     <div>
       <div className='header'>
@@ -44,7 +54,9 @@ function App() {
         <DivColumn
           wordList={section === "feelings" ? feelingsList : complaintsList}
           searchText={searchText}
-          divClass={section}/>
+          divClass={section}
+          handleAddWordClick={handleAddWordClick}
+           />
       </div>
       {infoBox &&
         <div className='bg'>
@@ -54,6 +66,18 @@ function App() {
             </div>
             <div className='text-sm m-4 text-slate-800'>site built by <a className="underline" target="_blank" href='https://www.josephm.dev'>josephm.dev</a></div>
             <div className='mt-6 px-5 py-2 bg-gray-50 border rounded cursor-pointer' onClick={()=> setInfoBox(!infoBox)}><div className="text-slate-800 text-sm" >close</div></div>
+
+          </div>
+        </div>
+      }
+      {addWord &&
+        <div className='bg'>
+          <div className='popup'>
+            <div className='m-4'>
+              <div className='text-sm text-slate-800'>use another word: </div>
+            </div>
+            <input className='border-b-4 w-36 outline-none text-center' onKeyDown={handleKeyDown} type="text" autoFocus></input>
+            <div className='mt-6 px-5 py-2 bg-gray-50 border rounded cursor-pointer'  onClick={()=> setAddWord(!addWord)}><div className="text-slate-800 text-sm" >add</div></div>
 
           </div>
         </div>
