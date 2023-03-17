@@ -14,6 +14,7 @@ function App() {
   const [searchText, setSearchText] = useState('');
   const [infoBox, setInfoBox] = useState(false)
   const [addWord, setAddWord] = useState(false)
+  const [userInput, setUserInput] = useState("")
 
 
   const sections = [
@@ -26,7 +27,6 @@ function App() {
   }
 
   function handleAddWordClick() {
-    console.log("choop")
     setAddWord(!addWord)
   }
 
@@ -35,11 +35,15 @@ function App() {
       handleAddWordClick()
     }
   }
+
+  function handleChangeUserInput(e) {
+    setUserInput(e.target.value)
+  }
   return (
     <div>
       <div className='header'>
         <div className='m-auto cursor-pointer' onClick={()=> setInfoBox(!infoBox)}><InfoIcon/></div>
-        <div className='m-auto w-[180px]'><Select options={sections} defaultValue={sections[0]} onChange={handleSelectInputChange}/></div>
+        <div className='m-auto w-[180px]'><Select options={sections} defaultValue={sections[0]} onChange={handleSelectInputChange} isSearchable={false} /></div>
         <div className='searchContainer'>
           <input
           type="text"
@@ -76,7 +80,7 @@ function App() {
             <div className='m-4'>
               <div className='text-sm text-slate-800'>use another word: </div>
             </div>
-            <input className='border-b-4 w-36 outline-none text-center' onKeyDown={handleKeyDown} type="text" autoFocus></input>
+            <input className='border-b-4 w-28 outline-none text-center' style={{ borderColor: section === "feelings" ? "#699F96" : "#043D66" }} onKeyDown={handleKeyDown} type="text" autoFocus value={userInput} onChange={handleChangeUserInput}></input>
             <div className='mt-6 px-5 py-2 bg-gray-50 border rounded cursor-pointer'  onClick={()=> setAddWord(!addWord)}><div className="text-slate-800 text-sm" >add</div></div>
 
           </div>
