@@ -52,7 +52,7 @@ export default function DivGrid({ words, section, bgColor, updateFields, handleD
             onBlur={handleInputSubmit}
             onKeyDown={handleKeyDown}
           ></input></div>
-        : <div onClick={handleAddClick} className="cursor-pointer" style={{ color: '#d4d4d4'}}>+</div>}
+        : <div onClick={handleAddClick} className="cursor-pointer text-lg select-none" style={{ color: '#bfbfbf'}}>+</div>}
     </div>
   );
 }

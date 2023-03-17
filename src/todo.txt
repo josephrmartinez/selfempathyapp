@@ -2,15 +2,13 @@ TODO:
 
 Page one:
 - Add query param to <Select /> to include &section=complaints &section=feelings
-- add + div at end of page one div column. Implement connection to firestore database.
-- add + div to div grid. Implement add user suggestion.
+- add + div at end of page one div column
+    - Implement connection to firestore database
+    - Implement add div to div column?
 
 
 Page two:
-- Prevent text select capability on + div. Make plus bigger
-- Default input tex toLowerCase
 - Summary page: change DivGridSUmmary to center divs if there is only one value?
-- PREVENTDEFAULT? onEnter event for input box is triggering next page on multistep form
 - use react router to pass section state to page two (for back button UX consistency)
 
 
