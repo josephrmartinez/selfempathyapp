@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { Link, useParams, useLocation, useLoaderData } from "react-router-dom"
+import { Link, useParams, useLocation, useLoaderData, useSearchParams } from "react-router-dom"
 
 import Select from 'react-select'
 import { feelingsList } from '../assets/feelingsList'
@@ -15,10 +15,17 @@ import EmpathyForm from './empathyForm/EmpathyForm'
 
 
 export default function EmpathyPage(props) {
-    const params = useParams()
+  const params = useParams()
+  
+  const [searchParams, setSearchParams] = useSearchParams()
+  const sectionFilter = searchParams.get("section")
 
-    const content =
-        params.section == "feelings" ? feelings[params.word] :  complaints[params.word]
+  const location = useLocation()
+  const sectionState = `?${location.state.section?.toString()}` || ""
+  
+
+  const content =
+      params.section == "feelings" ? feelings[params.word] :  complaints[params.word]
 
   
   let frontEndEmpathyData =
@@ -48,11 +55,13 @@ export default function EmpathyPage(props) {
 
     // console.log(frontEndEmpathyData)
 
+  
+  
 
     return (
     <div>
       <div className='header'>
-        <Link to={`..`} className='m-auto cursor-pointer'><HomeIcon /></Link>
+        <Link to={`..${sectionState}`} className='m-auto cursor-pointer'><HomeIcon /></Link>
       </div>
             <div className='container empathy'>
                 <div>

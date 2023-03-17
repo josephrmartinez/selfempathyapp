@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Div from "./Div";
 
-export default function DivColumn({ wordList, searchText, divClass, handleAddWordClick }) {
+export default function DivColumn({ wordList, searchText, divClass, handleAddWordClick, searchParams }) {
   const [newInput, setNewInput] = useState("")
   const [newInputActive, setNewInputActive] = useState(false)
   
@@ -17,6 +17,7 @@ export default function DivColumn({ wordList, searchText, divClass, handleAddWor
               word={word}
               divClass={divClass}
               key={word}
+              searchParams={searchParams}
           />
     );
   });

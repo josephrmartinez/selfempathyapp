@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useParams, useLocation } from "react-router-dom"
+import { Link, useParams, useLocation, useSearchParams } from "react-router-dom"
 import './App.css'
 import React from 'react'
 import Select from 'react-select'
@@ -10,7 +10,8 @@ import { ReactComponent as SearchIcon } from './assets/icons/search.svg';
 import { ReactComponent as InfoIcon } from './assets/icons/info-circle.svg';
 
 function App() {
-  const [section, setSection] = useState("feelings")
+  const [searchParams, setSearchParams] = useSearchParams()
+  const [section, setSection] = useState(searchParams.get("section") || "feelings")
   const [searchText, setSearchText] = useState('');
   const [infoBox, setInfoBox] = useState(false)
   const [addWord, setAddWord] = useState(false)
@@ -22,8 +23,14 @@ function App() {
     { value: "complaints", label: "They're being:" }
   ]
 
+
+  const location = useLocation()
+  // console.log(location)
+
   function handleSelectInputChange(value) {
     setSection(value.value)
+    setSearchParams({ section: value.value })
+
   }
 
   function handleAddWordClick() {
@@ -43,7 +50,7 @@ function App() {
     <div>
       <div className='header'>
         <div className='m-auto cursor-pointer' onClick={()=> setInfoBox(!infoBox)}><InfoIcon/></div>
-        <div className='m-auto w-[180px]'><Select options={sections} defaultValue={sections[0]} onChange={handleSelectInputChange} isSearchable={false} /></div>
+        <div className='m-auto w-[180px]'><Select options={sections} defaultValue={sections.filter(each => each.value === section)} onChange={handleSelectInputChange} isSearchable={false} /></div>
         <div className='searchContainer'>
           <input
           type="text"
@@ -59,6 +66,7 @@ function App() {
           wordList={section === "feelings" ? feelingsList : complaintsList}
           searchText={searchText}
           divClass={section}
+          searchParams={searchParams}
           handleAddWordClick={handleAddWordClick}
            />
       </div>
