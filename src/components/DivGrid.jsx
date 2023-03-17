@@ -6,7 +6,7 @@ export default function DivGrid({ words, section, bgColor, updateFields, handleD
   const [userInputValue, setUserInputValue] = useState("")
 
   function handleAddClick() {
-    setUserInputActive(true)
+    setUserInputActive(!userInputActive)
   }
 
   function handleInputChange(e) {
@@ -14,9 +14,16 @@ export default function DivGrid({ words, section, bgColor, updateFields, handleD
   }
 
   function handleInputSubmit(e) {
-    words.push({ word: e.target.value })
+    words.push({ word: e.target.value, selected: true })
     setUserInputValue("")
-    setUserInputActive(false)
+    setUserInputActive(!userInputActive)
+
+  }
+
+  function handleKeyDown(e) {
+    if (e.keyCode === 13 || e.keyCode === 9) {
+      handleInputSubmit(e)
+    }
   }
 
   return (
@@ -43,6 +50,7 @@ export default function DivGrid({ words, section, bgColor, updateFields, handleD
             autoFocus
             onChange={handleInputChange}
             onBlur={handleInputSubmit}
+            onKeyDown={handleKeyDown}
           ></input></div>
         : <div onClick={handleAddClick} className="cursor-pointer" style={{ color: '#d4d4d4'}}>+</div>}
     </div>

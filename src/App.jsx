@@ -31,6 +31,7 @@ function App() {
   }
 
   function handleKeyDown(e) {
+    console.log(e.keyCode)
     if (e.keyCode === 13 || e.keyCode === 9) {
       handleAddWordClick()
     }
