@@ -21,8 +21,9 @@ export default function EmpathyPage(props) {
   const sectionFilter = searchParams.get("section")
 
   const location = useLocation()
-  const sectionState = `?${location.state.section?.toString()}` || ""
+  const sectionState =  ""
   
+  // `?${location.state.section?.toString()}` ||
 
   const content =
       params.section == "feelings" ? feelings[params.word] :  complaints[params.word]
