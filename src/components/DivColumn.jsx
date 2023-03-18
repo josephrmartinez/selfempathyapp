@@ -1,11 +1,7 @@
 
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import Div from "./Div";
 
 export default function DivColumn({ wordList, searchText, divClass, handleAddWordClick, searchParams }) {
-  const [newInput, setNewInput] = useState("")
-  const [newInputActive, setNewInputActive] = useState(false)
   
   const divs = [];
 

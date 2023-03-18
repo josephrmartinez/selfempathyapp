@@ -1,14 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link, useParams, useLocation, useLoaderData, useSearchParams } from "react-router-dom"
-
-import Select from 'react-select'
-import { feelingsList } from '../assets/feelingsList'
-import { complaintsList } from '../assets/complaintsList'
-import DivColumn from '../components/DivColumn'
-import DivGrid from './DivGrid'
 import { ReactComponent as HomeIcon } from '../assets/icons/house.svg'
-
 import complaints from '../assets/complaints'
 import feelings from '../assets/feelings'
 import EmpathyForm from './empathyForm/EmpathyForm'
@@ -16,14 +9,12 @@ import EmpathyForm from './empathyForm/EmpathyForm'
 
 export default function EmpathyPage(props) {
   const params = useParams()
-  
-  const [searchParams, setSearchParams] = useSearchParams()
-  const sectionFilter = searchParams.get("section")
 
   const location = useLocation()
-  const sectionState =  ""
   
-  // `?${location.state.section?.toString()}` ||
+
+  const sectionState = location.state
+  // console.log(sectionState)
 
   const content =
       params.section == "feelings" ? feelings[params.word] :  complaints[params.word]
@@ -52,10 +43,6 @@ export default function EmpathyPage(props) {
         return {word: each, selected: false}
       }),
     }
-  
-
-    // console.log(frontEndEmpathyData)
-
   
   
 

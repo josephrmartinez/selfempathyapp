@@ -23,10 +23,6 @@ function App() {
     { value: "complaints", label: "They're being:" }
   ]
 
-
-  const location = useLocation()
-  // console.log(location)
-
   function handleSelectInputChange(value) {
     setSection(value.value)
     setSearchParams({ section: value.value })
@@ -66,7 +62,6 @@ function App() {
           wordList={section === "feelings" ? feelingsList : complaintsList}
           searchText={searchText}
           divClass={section}
-          searchParams={searchParams}
           handleAddWordClick={handleAddWordClick}
            />
       </div>
