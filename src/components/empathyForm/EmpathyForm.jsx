@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useMultistepForm from "../../utilities/useMultistepForm"
 import EFInitialFeelings from "./EFInitialFeelings"
 import EFUnderlyingFeelings from "./EFUnderlyingFeelings"
@@ -10,7 +10,7 @@ import { ReactComponent as LeftIcon } from '../../assets/icons/angle-left-solid.
 
 export default function EmpathyForm(props) {
     const [data, setData] = useState(props.content)
-
+    const [check, setCheck] = useState(false)
     const steps = [];
         if (data['initialFeelings']) {
         steps.push(<EFInitialFeelings {...data} formPage="EFInitialFeelings" updateFields={updateFields} handleDivClick={handleDivClick} />);
@@ -35,7 +35,19 @@ export default function EmpathyForm(props) {
         })
     }
 
-    function handleDivClick(section, index) {        
+    function handleDivClick(section, index,check1) {     
+        if (formPage==="EFInitialFeelings") {
+            setCheck(check1);  
+            
+        }
+        if (formPage==="EFUnderlyingFeelings"&& "needs") {
+            setCheck(false);
+            setCheck(check1);  
+        }
+        if (formPage==="EFNeeds") {
+            setCheck(check1);  
+        }
+       
         setData(prevData => {
             const updatedSection = prevData[section].map((item, i) => {
                 if (i === index) {
@@ -65,13 +77,19 @@ export default function EmpathyForm(props) {
                         {formPage === "EFUnderlyingFeelings" && "initial feelings"}
                         {formPage === "EFNeeds" && "underlying feelings"}
                     </button>}
-                
-                <button className="flex flex-row items-center" type="button" style={{ color: "#888888" }} onClick={next}>
-                    {formPage === "EFInitialFeelings" && "underlying feelings"}
+                    {check? 
+                <button className="flex flex-row items-center" type="button" style={{ color: "#888888" }} onClick={next}  >
+                   
+                   
+                    {formPage === "EFInitialFeelings" && "underlying feelings" }
+                    
                     {formPage === "EFUnderlyingFeelings" && "needs"}
+                    
                     {formPage === "EFNeeds" && "done"}
                     <RightIcon className="mx-2 opacity-40" width={12} />
+                    
                 </button>
+                :<div>Select one item</div>}
             </div>}
             </div>
         

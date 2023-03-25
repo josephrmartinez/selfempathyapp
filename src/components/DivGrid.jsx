@@ -35,7 +35,7 @@ export default function DivGrid({ words, section, bgColor, updateFields, handleD
           style={word.selected
             ? { color: '#FEFEFE', backgroundColor: bgColor, borderWidth: '1px', borderColor: bgColor }
             : { color: '#606060', borderWidth: '1px', borderColor: '#c5c5c5'}}
-          onClick={() => handleDivClick(section, index)}
+          onClick={() => handleDivClick(section, index,true)}
         >
           {word.word}
         </div>
