@@ -2,22 +2,19 @@ import React from 'react'
 import { useState } from 'react'
 import { Link, useParams, useLocation, useLoaderData, useSearchParams } from "react-router-dom"
 import { ReactComponent as HomeIcon } from '../assets/icons/house.svg'
-import complaints from '../assets/complaints'
-import feelings from '../assets/feelings'
 import EmpathyForm from './empathyForm/EmpathyForm'
 
 
 export default function EmpathyPage(props) {
   const params = useParams()
-
   const location = useLocation()
-  
-
   const sectionState = location.state
   // console.log(sectionState)
 
+  const feelingsData = JSON.parse(localStorage.getItem("feelingsData"))
+  const complaintsData = JSON.parse(localStorage.getItem("complaintsData"))
   const content =
-      params.section == "feelings" ? feelings[params.word] :  complaints[params.word]
+      params.section == "feelings" ? feelingsData[params.word] :  complaintsData[params.word]
 
   
   let frontEndEmpathyData =

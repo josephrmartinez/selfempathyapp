@@ -1,13 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useParams, useLocation, useSearchParams } from "react-router-dom"
 import './App.css'
 import React from 'react'
 import Select from 'react-select'
-import { feelingsList } from './assets/feelingsList'
-import { complaintsList } from './assets/complaintsList'
+import feelings from './assets/feelings.json'
+import complaints from './assets/complaints.json'
 import DivColumn from './components/DivColumn'
 import { ReactComponent as SearchIcon } from './assets/icons/search.svg';
 import { ReactComponent as InfoIcon } from './assets/icons/info-circle.svg';
+import generateComplaintObject from './utilities/generateComplaintObject'
+import generateFeelingObject from './utilities/generateFeelingObject'
+import { data } from 'autoprefixer'
 
 function App() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -15,7 +18,23 @@ function App() {
   const [searchText, setSearchText] = useState('');
   const [infoBox, setInfoBox] = useState(false)
   const [addWord, setAddWord] = useState(false)
+  const [isFetching, setIsFetching] = useState(false)
   const [userInput, setUserInput] = useState("")
+  const[feelingsData, setFeelingsData] = useState(
+    JSON.parse(localStorage.getItem("feelingsData")) || feelings)
+  const[complaintsData, setComplaintsData] = useState(
+    JSON.parse(localStorage.getItem("complaintsData")) || complaints)
+  const feelingsList = Object.keys(feelingsData).sort((a, b) => a.localeCompare(b));
+  const complaintsList = Object.keys(complaintsData).sort((a, b) => a.localeCompare(b));
+  
+
+  useEffect(() => {
+    localStorage.setItem("feelingsData", JSON.stringify(feelingsData))
+    }, [feelingsData])
+  
+  useEffect(() => {
+    localStorage.setItem("complaintsData", JSON.stringify(complaintsData))
+  }, [complaintsData])
 
 
   const sections = [
@@ -29,18 +48,50 @@ function App() {
 
   }
 
-  function handleAddWordClick() {
+  function toggleAddWordBox() {
     setAddWord(!addWord)
   }
 
+
+  function closeAddWordBox() {
+    setUserInput("")
+    setAddWord(false)
+  }
+
+
+  function handleAddWord() {
+    if (userInput.trim().length < 4 || !/^[a-zA-Z]+$/.test(userInput.trim())) {
+      return
+    }
+    // setIsFetching(true)
+    const dataObj = section === "complaints" ? generateComplaintObject(userInput) : generateFeelingObject(userInput)
+    console.log(dataObj)
+
+    if (section === "complaints") {
+      setComplaintsData(prevData => ({
+        ...prevData, ...dataObj
+      }))
+      console.log(complaintsData)
+    } else {
+      setFeelingsData(prevData => ({
+        ...prevData, ...dataObj
+      }))
+    }
+    
+    setUserInput("")
+    // setIsFetching(false)
+    setAddWord(false)
+    }
+  
+
   function handleKeyDown(e) {
     if (e.keyCode === 13 || e.keyCode === 9) {
-      handleAddWordClick()
+      handleAddWord()
     }
   }
 
   function handleChangeUserInput(e) {
-    setUserInput(e.target.value)
+    setUserInput(e.target.value.toLowerCase())
   }
   return (
     <div>
@@ -63,7 +114,7 @@ function App() {
           wordList={section === "feelings" ? feelingsList : complaintsList}
           searchText={searchText}
           divClass={section}
-          handleAddWordClick={handleAddWordClick}
+          toggleAddWordBox={toggleAddWordBox}
            />
       </div>
       {infoBox &&
@@ -84,9 +135,18 @@ function App() {
             <div className='m-4'>
               <div className='text-sm text-slate-800'>use another word: </div>
             </div>
-            <input className='border-b-4 w-28 outline-none text-center' style={{ borderColor: section === "feelings" ? "#699F96" : "#043D66" }} onKeyDown={handleKeyDown} type="text" autoFocus value={userInput} onChange={handleChangeUserInput}></input>
-            <div className='mt-6 px-5 py-2 bg-gray-50 border rounded cursor-pointer'  onClick={()=> setAddWord(!addWord)}><div className="text-slate-800 text-sm" >add</div></div>
-
+            {!isFetching && 
+              <>
+            <input className='mb-8 border-b-4 w-28 outline-none text-center' style={{ borderColor: section === "feelings" ? "#699F96" : "#043D66" }} onKeyDown={handleKeyDown} type="text" autoFocus value={userInput} onChange={handleChangeUserInput}></input>
+              <div className='w-20 mt-6  h-10 py-2 bg-gray-50 border rounded cursor-pointer' onClick={handleAddWord}><div className="text-slate-800 text-sm" >add</div></div>
+              <div className='absolute bottom-8 text-sm' style={{color: 'gray'}} onClick={closeAddWordBox}>close</div>
+            </>}
+            {isFetching &&
+            <>  
+            <input readOnly className='mb-8 border-b-4 w-28 outline-none text-center' style={{ borderColor: section === "feelings" ? "#699F96" : "#043D66" }} type="text" autoFocus value={userInput}></input>
+            <div className='w-20 mt-7 mx-auto py-3 bg-gray-50  flex justify-center'><div className='loader' ></div></div>
+          </>
+          }
           </div>
         </div>
         }
@@ -95,3 +155,5 @@ function App() {
 }
 
 export default App
+
+

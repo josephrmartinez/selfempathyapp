@@ -1,7 +1,7 @@
 
 import Div from "./Div";
 
-export default function DivColumn({ wordList, searchText, divClass, handleAddWordClick, searchParams }) {
+export default function DivColumn({ wordList, searchText, divClass, toggleAddWordBox, searchParams }) {
   
   const divs = [];
 
@@ -21,7 +21,7 @@ export default function DivColumn({ wordList, searchText, divClass, handleAddWor
   return (
     <div className='flex flex-col items-center'>
       {divs}
-      <div className={`listDiv ${divClass}`} onClick={handleAddWordClick} >+</div>
+      <div className={`listDiv ${divClass}`} onClick={toggleAddWordBox} >+</div>
     </div>
   )  
 }
