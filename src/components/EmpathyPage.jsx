@@ -51,7 +51,7 @@ export default function EmpathyPage(props) {
       <div className='header'>
         <Link to={`..${sectionState}`} className='m-auto cursor-pointer'><HomeIcon /></Link>
       </div>
-            <div className='container empathy'>
+            <div className='empathyContainer'>
                 <div>
                     <div className='text-sm'>{params.section == "feelings" ? "I'M FEELING" : "THEY'RE BEING"}</div>
                     <div className={`listDiv ${params.section}`} style={{ cursor: "default" }}>{params.word}</div>

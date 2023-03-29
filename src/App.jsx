@@ -53,11 +53,12 @@ function App() {
           placeholder=''
           value={searchText}
           onChange={(e) => setSearchText(e.target.value.toLowerCase())}
-            className="border rounded-full w-24 indent-2"></input>
+            className="border rounded-full w-24 indent-2"
+          style={{borderColor: 'rgb(212 212 212)'}}></input>
           <SearchIcon className="SearchIcon"/>
         </div>
       </div>
-      <div className='container'>
+      <div className='relative top-20 flex flex-col justify-center items-center'>
         <DivColumn
           wordList={section === "feelings" ? feelingsList : complaintsList}
           searchText={searchText}
