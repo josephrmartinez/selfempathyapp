@@ -44,7 +44,7 @@ export default function EmpathyPage(props) {
   
 
     return (
-    <div>
+    <div className='flex flex-col items-center'>
       <div className='header'>
         <Link to={`..${sectionState}`} className='m-auto cursor-pointer'><HomeIcon /></Link>
       </div>

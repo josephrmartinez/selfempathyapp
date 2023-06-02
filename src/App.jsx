@@ -94,20 +94,23 @@ function App() {
     setUserInput(e.target.value.toLowerCase())
   }
   return (
-    <div>
+    <div className='flex flex-col items-center'>
       <div className='header'>
         <div className='m-auto cursor-pointer' onClick={()=> setInfoBox(!infoBox)}><InfoIcon/></div>
         <div className='m-auto w-[180px]'><Select options={sections} defaultValue={sections.filter(each => each.value === section)} onChange={handleSelectInputChange} isSearchable={false} /></div>
-        <div className='searchContainer'>
+        <div className='flex flex-col items-center'>
+          <div className='searchContainer'>
           <input
           type="text"
           placeholder=''
           value={searchText}
           onChange={(e) => setSearchText(e.target.value.toLowerCase())}
-            className="border rounded-full w-24 indent-2"
+          className=" inline-block border rounded-full w-20 sm:w-28 md:w-32 indent-2"
           style={{borderColor: 'rgb(212 212 212)'}}></input>
           <SearchIcon className="SearchIcon"/>
         </div>
+      </div>
+        
       </div>
       <div className='relative top-20 flex flex-col justify-center items-center'>
         <DivColumn

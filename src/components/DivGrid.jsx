@@ -31,7 +31,7 @@ export default function DivGrid({ words, section, bgColor, updateFields, handleD
       {words.map((word, index) => (
         <div
           key={index}
-          className={`py-2 px-3 rounded-full cursor-pointer antialiased`}
+          className={`py-2 px-3 rounded-full cursor-pointer select-none transition-colors duration-200 antialiased`}
           style={word.selected
             ? { color: '#FEFEFE', backgroundColor: bgColor, borderWidth: '1px', borderColor: bgColor }
             : { color: '#606060', borderWidth: '1px', borderColor: '#c5c5c5'}}
