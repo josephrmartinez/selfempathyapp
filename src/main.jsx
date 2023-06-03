@@ -11,9 +11,11 @@ import {
 import ErrorPage from './error-page'
 import EmpathyPage from './components/EmpathyPage';
 
-if (process.env.NODE_ENV === 'development') {
-  import('@impulse.dev/runtime').then((impulse) => impulse.run())
-}
+// Impulse import statement. Enable only during development.
+// if (process.env.NODE_ENV === 'development') {
+//   import('@impulse.dev/runtime').then((impulse) => impulse.run())
+// }
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDuQIwpvn3uG9hhRZsn2-4upYnHDT70DHY",
