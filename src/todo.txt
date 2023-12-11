@@ -1,14 +1,12 @@
 TODO:
 
 Page one:
-- Add query param to <Select /> to include &section=complaints &section=feelings
 - add + div at end of page one div column
     - Implement connection to firestore database
     - Implement add div to div column?
 
 
 Page two:
-- Summary page: change DivGridSUmmary to center divs if there is only one value?
 - use react router to pass section state to page two (for back button UX consistency)
 
 
