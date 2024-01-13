@@ -14,10 +14,15 @@ export default function DivGrid({ words, section, bgColor, updateFields, handleD
   }
 
   function handleInputSubmit(e) {
-    words.push({ word: e.target.value, selected: true })
-    setUserInputValue("")
-    setUserInputActive(!userInputActive)
-
+    if (e.target.value === "") {
+      setUserInputActive(!userInputActive)
+    } else {
+      words.push({ word: e.target.value, selected: true })
+      setUserInputValue("")
+      setUserInputActive(!userInputActive)
+  
+    }
+    
   }
 
   function handleKeyDown(e) {
@@ -52,7 +57,7 @@ export default function DivGrid({ words, section, bgColor, updateFields, handleD
             onBlur={handleInputSubmit}
             onKeyDown={handleKeyDown}
           ></input></div>
-        : <div onClick={handleAddClick} className="cursor-pointer text-lg select-none" style={{ color: '#bfbfbf'}}>+</div>}
+        : <div onClick={handleAddClick} className="cursor-pointer text-3xl select-none" style={{ color: '#545454'}}>+</div>}
     </div>
   );
 }

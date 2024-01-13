@@ -56,17 +56,17 @@ export default function EmpathyForm(props) {
 
 
     return (
-            <div className="h-full grid grid-rows-[60px,1fr,80px]">
+            <div className="h-full grid grid-rows-[50px,1fr,120px] mt-4">
                 {step}
-            {formPage !== "EFSummary" && <div className="flex flex-row justify-between items-center text-sm mx-4">
+            {formPage !== "EFSummary" && <div className="flex flex-row justify-between items-center text-md mx-4">
                 {currentStepIndex === 0 && <div className=""></div>}
                 {currentStepIndex !== 0 &&
-                    <button type="button" className="flex flex-row items-center" style={{ color: "#888888" }} onClick={back}><LeftIcon className="mx-2 opacity-40" width={12} />
+                    <button type="button" className="flex flex-row items-center" style={{ color: "#545454" }} onClick={back}><LeftIcon className="mx-2 opacity-40" width={12} />
                         {formPage === "EFUnderlyingFeelings" && "initial feelings"}
                         {formPage === "EFNeeds" && "underlying feelings"}
                     </button>}
                 
-                <button className="flex flex-row items-center" type="button" style={{ color: "#888888" }} onClick={next}>
+                <button className="flex flex-row items-center" type="button" style={{ color: "#545454" }} onClick={next}>
                     {formPage === "EFInitialFeelings" && "underlying feelings"}
                     {formPage === "EFUnderlyingFeelings" && "needs"}
                     {formPage === "EFNeeds" && "done"}

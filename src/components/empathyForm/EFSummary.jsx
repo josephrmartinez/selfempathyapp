@@ -34,9 +34,9 @@ export default function EFSummary(data) {
         { selectedInitialFeelings && 
         <FormWrapper FormWrapper title = "MY INITIAL FEELINGS" >
             <DivGridSummary words={selectedInitialFeelings} section="initialFeelings" bgColor={'#699F96'}/>
-            <div className="text-sm text-center mt-8 mb-5 tracking-wide">MY UNDERLYING FEELINGS</div>
+            <div className="text-sm text-center mt-8 mb-2 tracking-wide">MY UNDERLYING FEELINGS</div>
             <DivGridSummary words={selectedUnderlyingFeelings} section="underlyingFeelings" bgColor={'#935A5A'}/>
-            <div className="text-sm text-center mt-8 mb-5 tracking-wide">MY NEEDS</div>
+            <div className="text-sm text-center mt-8 mb-2 tracking-wide">MY NEEDS</div>
             <DivGridSummary words={selectedNeeds} section="needs" bgColor={'#93b1c9'}/>
         </FormWrapper>
     }
@@ -44,7 +44,7 @@ export default function EFSummary(data) {
         { !selectedInitialFeelings && 
         < FormWrapper FormWraper title = "MY UNDERLYING FEELINGS" >
             <DivGridSummary words={selectedUnderlyingFeelings} section="underlyingFeelings" bgColor={'#935A5A'}/>
-            <div className="text-sm text-center mt-8 mb-5 tracking-wide">MY NEEDS</div>
+            <div className="text-sm text-center mt-8 mb-2 tracking-wide">MY NEEDS</div>
             <DivGridSummary words={selectedNeeds} section="needs" bgColor={'#93b1c9'}/>
         </FormWrapper>
     }

@@ -5,10 +5,10 @@ export default function DivGridSummary({ words, bgColor}) {
           {words.map((word, index) => (
               <div
                   key={index}
-                  className={`pb-2 px-4 cursor-default text-sm antialiased`}
-                  style={{ color: '#525252' }}>
-          {word.word}
-        </div>
+                  className={`py-2 px-3 mx-2 my-2 rounded-full select-none antialiased`}
+                  style={{ color: '#FEFEFE', backgroundColor: `${bgColor}`, borderWidth: '1px', borderColor: bgColor }}>
+                {word.word}
+              </div>
       ))}
        </div>
   );
