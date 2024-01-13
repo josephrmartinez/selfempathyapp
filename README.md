@@ -1,6 +1,6 @@
 # Self Empathy App
 
-This is a web app that allows users to practice self-empathy techniques.  Built with React and Firebase.
+This is a web app that allows users to practice self-empathy techniques.  Built with React. There is no backend or databse. No analytics. No user data collected.
 
 ## Getting Started
 
@@ -33,7 +33,6 @@ npm run preview
 
 The app relies on the following dependencies:
 
-* `firebase`: Backend service and authentication provider
 * `react`: JavaScript library for building user interfaces
 * `react-dom`: React package for working with the DOM
 * `react-router-dom`: Routing library for React

@@ -69,7 +69,7 @@ export default function EmpathyForm(props) {
                 <button className="flex flex-row items-center" type="button" style={{ color: "#545454" }} onClick={next}>
                     {formPage === "EFInitialFeelings" && "underlying feelings"}
                     {formPage === "EFUnderlyingFeelings" && "needs"}
-                    {formPage === "EFNeeds" && "done"}
+                    {formPage === "EFNeeds" && "summary"}
                     <RightIcon className="mx-2 opacity-40" width={12} />
                 </button>
             </div>}

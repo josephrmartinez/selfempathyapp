@@ -1,19 +1,12 @@
 TODO:
-
-Page one:
-- add + div at end of page one div column
-    - Implement connection to firestore database
-    - Implement add div to div column?
-
-
-Page two:
-- use react router to pass section state to page two (for back button UX consistency)
-
-
+Display:
+- Check display on iPhone SE
 
 Content:
-- Add "neglegent" to complaints list
+- Add to complaints list: negligent, 
 
 
+
+NOTES:
 Package.json
 // "type": "module", removed from file

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useParams, useLocation, useSearchParams } from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 import './App.css'
 import React from 'react'
 import Select from 'react-select'
@@ -10,7 +10,6 @@ import { ReactComponent as SearchIcon } from './assets/icons/search.svg';
 import { ReactComponent as InfoIcon } from './assets/icons/info-circle.svg';
 import generateComplaintObject from './utilities/generateComplaintObject'
 import generateFeelingObject from './utilities/generateFeelingObject'
-import { data } from 'autoprefixer'
 
 function App() {
   const [searchParams, setSearchParams] = useSearchParams()

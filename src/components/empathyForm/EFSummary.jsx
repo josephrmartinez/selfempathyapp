@@ -10,24 +10,19 @@ export default function EFSummary(data) {
     const selectedUnderlyingFeelings = data.underlyingFeelings.filter(each => each.selected)
     const selectedNeeds = data.needs.filter(each => each.selected)
 
-    const complaintDataObj = {
-        "my complaint": complaint,
-        "my initial feelings": selectedInitialFeelings?.map(each => each.word),
-        "my underlying feelings": selectedUnderlyingFeelings.map(each => each.word),
-        "my needs": selectedNeeds.map(each => each.word)
-    }
+    // Construct data objects for logging:
+    // const complaintDataObj = {
+    //     "my complaint": complaint,
+    //     "my initial feelings": selectedInitialFeelings?.map(each => each.word),
+    //     "my underlying feelings": selectedUnderlyingFeelings.map(each => each.word),
+    //     "my needs": selectedNeeds.map(each => each.word)
+    // }
 
-    const feelingDataObj = {
-        "my initial feeling": initialFeeling,
-        "my underlying feelings": selectedUnderlyingFeelings.map(each => each.word),
-        "my needs": selectedNeeds.map(each => each.word)
-    }
-
-    if (selectedInitialFeelings) {
-        console.log(complaintDataObj)
-    } else {
-        console.log(feelingDataObj)
-    }
+    // const feelingDataObj = {
+    //     "my initial feeling": initialFeeling,
+    //     "my underlying feelings": selectedUnderlyingFeelings.map(each => each.word),
+    //     "my needs": selectedNeeds.map(each => each.word)
+    // }
 
     return (
     <>
