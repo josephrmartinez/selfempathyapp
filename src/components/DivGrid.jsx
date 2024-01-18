@@ -50,85 +50,82 @@ export default function DivGrid({ words, section, bgColor, updateFields, handleD
   }
 
   function handleRefreshClick(){
+
+    function returnUnselectedWords(words) {
+      let unselectedWords = []
+
+      for (const item of words) {
+        if (item.selected === false) {
+          unselectedWords.push(item.word)
+        }
+      }
+
+      return unselectedWords
+    }
+
+    function getRandomItems(array, count) {
+      const newArray = array.slice();
+    
+      for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+      }
+    
+      return newArray.slice(0, count);
+    }
+
+    function getNewTerms(wordArray, displayedWords, unselectedWords) {
+      // Create a Set of words to remove
+      const wordsToRemove = new Set(displayedWords.map(option => option.word));
+    
+      // Filter the wordList to remove words in the Set
+      const newArray = wordArray.filter(word => !wordsToRemove.has(word));
+    
+      // Return selectedFalse.length number of values from newArray. Select these at random.
+      const newTerms = getRandomItems(newArray, unselectedWords.length);
+    
+      return newTerms;
+    }
+
+    function replaceWords(words, newOptions) {
+      let choiceIndex = 0;
+    
+      for (let i = 0; i < words.length; i++) {
+        if (!words[i].selected) {
+          words[i].word = newOptions[choiceIndex];
+          choiceIndex++;
+    
+          // Reset index when all choices are used
+          if (choiceIndex === newOptions.length) {
+            choiceIndex = 0;
+          }
+        }
+      }
+    
+      return words;
+    }
+
+    
+
+
+
     setRefreshActive(true)
 
-    // Count number of words currently unselected
     // Return array of currently unselected words
+    const unselectedWords = returnUnselectedWords(words)
+
+    // Extract an array of new terms
+    let newTerms = getNewTerms(wordArray, words, unselectedWords)
+
+    // Update words array with new terms
+    replaceWords(words, newTerms)
     
-    const selectedFalse = returnSelectedFalse(words)
-    console.log("selectedFalse:", selectedFalse)
-
-    console.log("words:", words)
-
-    // Extract number of random words based on number not yet selected
-    let options = getNewOptions(wordArray, words, selectedFalse)
-    console.log("new options:", options)
-
-    // Update words array with new values
-    const newWords = replaceWords(words, options)
-    // console.log("newWords:", newWords)
-
     setTimeout(() => {
       setRefreshActive(false)
     }, 1000);
   }
 
 
-  function returnSelectedFalse(objectsArray) {
-    let selectedFalse = []
-
-    for (const obj of objectsArray) {
-      if (obj.selected === false) {
-        selectedFalse.push(obj.word)
-      }
-    }
-
-    return selectedFalse
-  }
-
-  function getRandomItems(array, count) {
-    const newArray = array.slice();
-  
-    for (let i = newArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-    }
-  
-    return newArray.slice(0, count);
-  }
-
-  function getNewOptions(wordList, currentOptions, selectedFalse) {
-    // Create a Set of words to remove
-    const wordsToRemove = new Set(currentOptions.map(option => option.word));
-  
-    // Filter the wordList to remove words in the Set
-    const newArray = wordList.filter(word => !wordsToRemove.has(word));
-  
-    // Return selectedFalse.length number of values from newArray. Select these at random.
-    const randomOptions = getRandomItems(newArray, selectedFalse.length);
-  
-    return randomOptions;
-  }
-
-  function replaceWords(currentWords, newOptions) {
-    let choiceIndex = 0;
-  
-    for (let i = 0; i < currentWords.length; i++) {
-      if (!currentWords[i].selected) {
-        currentWords[i].word = newOptions[choiceIndex];
-        choiceIndex++;
-  
-        // Reset index when all choices are used
-        if (choiceIndex === newOptions.length) {
-          choiceIndex = 0;
-        }
-      }
-    }
-  
-    return currentWords;
-  }
-
-//  Go through the array of words. For each value that has selected === false, replace the value with a random value from the same section of words. 
 
 
   return (
@@ -136,7 +133,7 @@ export default function DivGrid({ words, section, bgColor, updateFields, handleD
       {words.map((word, index) => (
         <div
           key={index}
-          className={`py-2 px-3 rounded-full cursor-pointer select-none transition-colors duration-300 antialiased`}
+          className={`py-2 px-3 w-32 rounded-full cursor-pointer select-none transition-colors duration-300 antialiased`}
           style={word.selected
             ? { color: '#FEFEFE', backgroundColor: bgColor, borderWidth: '1px', borderColor: bgColor }
             : { color: '#606060', borderWidth: '1px', borderColor: '#c5c5c5'}}
