@@ -4,7 +4,7 @@
 }
 
 html{
-  overflow: scroll;
+  overflow-y: scroll;
   background-color: rgb(249 250 251);
 }
 
@@ -56,7 +56,7 @@ html{
   flex-direction: column;
   align-items: center;
   top: 90px;
-  height: calc(100dvh - 80px);
+  height: calc(100dvh - 110px);
   max-height: 750px;
   width: 100%;
     max-width: 450px;

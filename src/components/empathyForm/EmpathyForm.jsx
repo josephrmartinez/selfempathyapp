@@ -56,7 +56,7 @@ export default function EmpathyForm(props) {
 
 
     return (
-            <div className="h-full grid grid-rows-[50px,1fr,120px] mt-4">
+            <div className="h-full grid grid-rows-[50px,1fr,120px] pt-4">
                 {step}
             {formPage !== "EFSummary" && <div className="flex flex-row justify-between items-center text-md mx-4">
                 {currentStepIndex === 0 && <div className=""></div>}
